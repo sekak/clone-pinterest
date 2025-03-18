@@ -15,7 +15,6 @@ export default function CreatePage() {
   };
 
   const handleSubmit = () => {
-    console.log({ title, description, board, tags, file });
     // Logique pour publier le pin ici
   };
 

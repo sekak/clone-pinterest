@@ -1,16 +1,17 @@
-import { Button } from '@mui/material';
 import React from 'react'
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import { GalleryItemProps } from '../gallery/types';
 import Image from '../image/image';
+import { Button } from '@mui/material';
+import { Props } from './types';
+import { Link } from 'react-router';
 
-export default function GalleryItem(props: GalleryItemProps) {
+export default function GalleryItem(props: Props) {
     const [isOpen, setIsOpen] = React.useState(false);
-
     return (
         <div className='flex relative' style={{ gridRowEnd: `span ${Math.ceil(props.height / 100)}` }} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
-            <Image media={props.media} h='300' w='300' className={"object-cover rounded-2xl"}/>
+            <Link to={`/pin/${props._id}`} className='absolute top-0 left-0 w-full h-full z-10' />
+            <Image media={props.media} src={props.media} h='300' w='300' className={"object-cover rounded-2xl"}/>
             {isOpen && <div className='absolute bottom-0 w-full h-full p-2 rounded-2xl hover:bg-black/50' >
                 <div className='h-full flex flex-col justify-between items-end p-2'>
                     <Button

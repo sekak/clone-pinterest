@@ -11,25 +11,33 @@ import SearchPage from './routes/searchPage/searchPage.js';
 import MainlyLayouts from './routes/layouts/mainlyLayouts.js';
 import Register from './routes/authPage/register.js';
 import Login from './routes/authPage/login.js';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<MainlyLayouts />} >
-            <Route path="/" element={<HomePage />} />
-            <Route path="/pin/:id" element={<PostPage />} />
-            <Route path="/create" element={<CreatePage />} />
-            <Route path="/:username" element={<ProfilePage />} />
-            <Route path="/search" element={<SearchPage />} />
-          </Route>
-          <Route path="/auth/register" element={<Register />} />
-          <Route path="/auth/login" element={<Login />} />
-        </Routes>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<MainlyLayouts />} >
+              <Route path="/" element={<HomePage />} />
+              <Route path="/pin/:id" element={<PostPage />} />
+              <Route path="/create" element={<CreatePage />} />
+              <Route path="/:username" element={<ProfilePage />} />
+              <Route path="/search" element={<SearchPage />} />
+            </Route>
+            <Route path="/auth/register" element={<Register />} />
+            <Route path="/auth/login" element={<Login />} />
+          </Routes>
 
-      </BrowserRouter>
+        </BrowserRouter>
+      </QueryClientProvider>
     </StrictMode>,
   );
 } else {

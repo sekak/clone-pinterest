@@ -2,6 +2,7 @@ import React from 'react';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import EmojiPicker, { EmojiClickData } from 'emoji-picker-react';
 
+
 export default function Comments() {
     const [content, setContent] = React.useState<string>('');
     const [showEmojiPicker, setShowEmojiPicker] = React.useState<boolean>(false);
@@ -21,7 +22,7 @@ export default function Comments() {
                             <span className="text-sm font-bold">
                                 Username
                                 <span className="break-all font-normal pl-2">
-                                    m1m1m1m1 m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m1
+                                    Comment1
                                 </span>
                             </span>
                             <span className="text-gray-500 text-sm">2m</span>
@@ -30,7 +31,7 @@ export default function Comments() {
                 </div>
             </div>
             <div className="bg-gray-200 mr-4 rounded-xl flex justify-between items-center px-4 relative">
-                <input 
+                <input
                     type="text"
                     placeholder="Add a comment"
                     className="w-full h-12 pr-4 text-gray-500 outline-none bg-transparent"
@@ -42,7 +43,7 @@ export default function Comments() {
                     onClick={() => setShowEmojiPicker(!showEmojiPicker)}
                 />
                 <div className={`absolute bottom-12 right-0 ${showEmojiPicker ? 'block' : 'hidden'}`}>
-                    <EmojiPicker onEmojiClick={handleClickEmoji} />
+                    <EmojiPicker onEmojiClick={handleClickEmoji} lazyLoadEmojis />
                 </div>
             </div>
         </div>

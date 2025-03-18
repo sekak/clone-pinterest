@@ -10,7 +10,6 @@ export default function Register() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ username, name, email, password });
   };
 
   return (

@@ -4,14 +4,18 @@ import boardRouter from './routes/board.router.js'
 import pinRouter from './routes/pin.router.js'
 import commentRouter from './routes/comment.route.js'
 import connectDB from './utils/connectDB.js'
+import cors from 'cors'
 
 const app = express()
+app.use(express.json())
+
+app.use(cors({origin: process.env.CORS_ORIGIN}))
 
 
-app.use('/users', userRouter)
-app.use('/boards', boardRouter)
-app.use('/pins', pinRouter)
-app.use('/comments', commentRouter)
+app.use('/api/users', userRouter)
+app.use('/api/boards', boardRouter)
+app.use('/api/pins', pinRouter)
+app.use('/api/comments', commentRouter)
 
 
 app.listen(3000, () => {

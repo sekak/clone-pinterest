@@ -1,6 +1,7 @@
 export interface Props {
-    media: string
+    media?: string
     h?: string
     w?: string
     className?: string
+    src?: string
 }

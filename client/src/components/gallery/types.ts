@@ -1,6 +1,4 @@
-export interface GalleryItemProps {
-    media: string;
-    width: number;
-    height: number;
-    id: number;
+export interface Props {
+    search?: string | null
+    userId?: string | null
 }

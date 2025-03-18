@@ -37,6 +37,7 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
+      populate: {select: 'username img displayName'},
     },
   },
   {

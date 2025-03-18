@@ -2,16 +2,17 @@ import { Schema } from "mongoose";
 import mongoose from "mongoose";
 
 const schema = new Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     displayName: {
         type: String,
         required: true,
     },
     img: {
         type: String,
-    },
-    name: {
-        type: String,
-        required: true,
     },
     email: {
         type: String,
