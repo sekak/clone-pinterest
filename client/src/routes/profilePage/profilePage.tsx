@@ -46,7 +46,7 @@ export default function ProfilePage() {
           type === 'created' ? (
             <Gallery userId={data._id}/>
           ) : (
-            <Collection />
+            <Collection userId={data._id}/>
           )
         }
       </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import EmojiPicker, { EmojiClickData } from 'emoji-picker-react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 
 export default function Comments() {
@@ -10,6 +12,18 @@ export default function Comments() {
     const handleClickEmoji = (emoji: EmojiClickData) => {
         if (emoji.emoji) setContent(prev => prev + emoji.emoji.trim());
     };
+
+    const fetchComments = async () => {
+        const res = await axios.get('http://localhost:3000/api/comments');
+        return res.data;
+    }
+
+    const {data, isPending, error} = useQuery({
+        queryKey: ['comments'],
+        queryFn: fetchComments,
+    })
+
+    console.log(data, isPending, error);
 
     return (
         <div className="py-4 w-full h-[calc(100%-100px)] flex flex-col justify-between pl-4">
